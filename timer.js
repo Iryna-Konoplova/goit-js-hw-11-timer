@@ -1,10 +1,3 @@
-// new CountdownTimer({
-//   selector: '#timer-1',
-//   targetDate: new Date('Jul 17, 2019'),
-// });
-
-
-
 class CountdownTimer {
   constructor({ selector, targetDate } = {}) {
     this.targetDate = new Date(targetDate).getTime();
@@ -19,10 +12,6 @@ class CountdownTimer {
     setInterval(() => {
       const currentTime = Date.now();
       this.updateClockface(currentTime);
-      // const deltaTime = this.targetDate - currentTime;
-      // const time = getTimeComponents(deltaTime);
-      // // this.onTick(time);
-      // updateClockface(time);
     }, 1000);
   } 
   
@@ -37,28 +26,9 @@ class CountdownTimer {
       this.fieldMins.textContent = this.pad(Math.floor((time % (1000 * 60 * 60)) / (1000 * 60)));
       this.fieldSecs.textContent = this.pad(Math.floor((time % (1000 * 60)) / 1000));
   }
-  
-//   getTimeComponents(time) {
-//   const days = this.pad(Math.floor(time / (1000 * 60 * 60 * 24)));
-//   const hours = this.pad(Math.floor((time % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)));
-//   const mins = this.pad(Math.floor((time % (1000 * 60 * 60)) / (1000 * 60)));
-//   const secs = this.pad(Math.floor((time % (1000 * 60)) / 1000));
-
-//   return { days, hours, mins, secs };
-//   }
-  
-//   updateClockface({ days, hours, mins, secs }) {
-//   this.fieldDays.textContent = `${days}`;
-//   this.fieldHours.textContent = `${hours}`;
-//   this.fieldMins.textContent = `${mins}`;
-//   this.fieldSecs.textContent = `${secs}`;
-// }
-
-
 }
 
 const myCountdownTimer = new CountdownTimer({
   selector: '#timer-1',
   targetDate: new Date('Jul 17, 2021'),
 });
-
